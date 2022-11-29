@@ -6,7 +6,16 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+.main{
+  height: 82.95vh;
+  width: 100%;
+}
+.header{
+  width: 100%;
+}
+.footer{
+  width: 100%;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

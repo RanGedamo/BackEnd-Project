@@ -8,6 +8,7 @@ import Shoes from './component/pages/Shoes/Shoes'
 export default function Routing() {
 
     return (
+        <div className='main'>
         <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='SignIn' element={<SignIn/>}/>
@@ -15,5 +16,6 @@ export default function Routing() {
             <Route path='Shoes' element={<Shoes/>}/>
             <Route path='*' element={<PageNotFound/>}/>
         </Routes>
+        </div>
     )
 }
