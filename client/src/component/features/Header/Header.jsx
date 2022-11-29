@@ -5,8 +5,8 @@ function Header() {
   return (
     <div className="header">
 
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark orange lighten-1 bg-dark">
-  <a class="navbar-brand" href="#"><img src="https://static.wixstatic.com/media/db36e0_9f977799257f4cdd8353762ce053b6af~mv2.png/v1/fill/w_318,h_136,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/db36e0_9f977799257f4cdd8353762ce053b6af~mv2.png" alt="" width="150px"/></a>
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark orange lighten-1 bg-dark ">
+  <a class="navbar-brand" href="#"><img src="https://static.wixstatic.com/media/db36e0_9f977799257f4cdd8353762ce053b6af~mv2.png/v1/fill/w_318,h_136,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/db36e0_9f977799257f4cdd8353762ce053b6af~mv2.png" alt="" width="120px"/></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
     aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
