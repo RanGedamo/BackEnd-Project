@@ -9,7 +9,7 @@ function App() {
     <div className="App">
 
       <BrowserRouter>
-        <Header />
+        <Header bol={localStorage.getItem("user")?true:false}/>
         <Routing />
         <Footer />
       </BrowserRouter>

@@ -1,33 +1,41 @@
 import "./Footer.css";
 import React from "react";
+import GitHubIcon from '@mui/icons-material/GitHub';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import GoogleIcon from '@mui/icons-material/Google';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 function Footer() {
   return (
     <div className="footer">
-<footer className="bg-dark text-center text-white " >
+<footer className="bg-dark text-center text-white fixed-bottom" >
   <div className="container p-4 pb-0" style={{height:'9vh'}}>
     <section className="mb-4">
       <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i className="fab fa-facebook-f"></i></a>
+        ><FacebookIcon sx={{mt:0.7 }}/></a>
 
       <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i className="fab fa-twitter"></i></a>
+        ><TwitterIcon sx={{mt:0.7 }}/></a>
 
       <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i className="fab fa-google"></i></a>
+        ><GoogleIcon sx={{mt:0.6 }}/></a>
 
       <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i className="fab fa-instagram"></i></a>
+        ><InstagramIcon sx={{mt:0.7 }}/></a>
 
       <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i className="fab fa-linkedin-in"></i></a>
+        ><LinkedInIcon sx={{mt:0.7 }}/></a>
 
       <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i className="fab fa-github"></i></a>
+        ><GitHubIcon sx={{mt:0.7 }}/></a>
     </section>
   </div>
-
-
+  {/* twitter
+  google
+  instagram
+  linkedin */}
 </footer>
     </div>
   );

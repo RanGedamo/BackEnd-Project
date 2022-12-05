@@ -1,45 +1,77 @@
 import "./SignIn.css";
-import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { usersAPI } from "../../../services/users-service";
+
+
+
+
 
 function SignIn() {
-  return (
-    <div className="sign-in d-flex justify-content-center box effect5 ">
-<form class="text-center border border-light p-5 mt-3 " style={{width:"30vw"}} action="#!" >
+    const [users, setUsers] = useState()
 
-    <p class="h4 mb-4">Sign in</p>
+    const [btn, setBtn] = useState(true)
 
-    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail"/>
+    useEffect(() => {
+        usersAPI().then(result => setUsers(result.data))
 
-    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password"/>
+    }, [])
+    const [inputs, setInputs] = useState({
+        email: '',
+        password: '',
+    });
 
-    <div class="d-flex justify-content-around">
-        <div>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember"/>
-                <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
-            </div>
+    useEffect(() => {
+        const userPassword = inputs.password
+        users?.map(user =>{
+            if(inputs.email == user.email && userPassword.length > 5){
+                return setBtn(false)
+            }
+        })
+    }, [inputs])
+
+
+    const onchangeInput = (e) => {
+        setInputs({ ...inputs, [e.target.name]: e.target.value })
+    }
+
+  
+    const login = ()=>{
+        localStorage.setItem("user",inputs.email)
+        postUser()
+    };
+
+    const postUser = async () => {
+        try {
+            return await fetch("http://localhost:3030/api/users/login", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(inputs)
+            })
+        }
+        catch (err) { console.log(err); }
+    };
+
+    return (
+        <div className="sign-in d-flex justify-content-center  effect5 ">
+            
+                <div className="text-center  p-5 mt-3 col-md-3 " action="#!" >
+
+                    <p className="h4 mb-4">Sign in</p>
+
+                    <input type="email" id="defaultLoginFormEmail" name="email" className="form-control mb-4" placeholder="E-mail" onChange={onchangeInput} />
+
+                    <input type="password" id="defaultLoginFormPassword" name="password" className="form-control mb-4" placeholder="Password" onChange={onchangeInput} />
+                    <button className="btn btn-info btn-block my-4 " disabled={btn} onClick={login}><a href="/chart">Sign in</a></button>
+                    <br />
+                    <p>Not a member?
+                        <a href="signUp"> Register Here</a>
+                    </p>
+
+                </div>
+
         </div>
-        <div>
-            <a href="">Forgot password?</a>
-        </div>
-    </div>
-
-    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
-
-    <p>Not a member?
-        <a href="">Register</a>
-    </p>
-
-    <p>or sign in with:</p>
-
-    <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
-    <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
-    <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
-    <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
-
-</form>
- </div>
-  );
+    );
 };
 
 export default SignIn;
