@@ -9,6 +9,7 @@ function Update() {
     lastName: editStudent.lastName,
     email: editStudent.email,
     phone: editStudent.phone,
+    sumTests:editStudent.sumTests,
     lastUpdate: new Date()
   });
 
@@ -57,7 +58,7 @@ function Update() {
             Sum Test
           </small>
           <div className="d-flex justify-content-center text-center align-item-center">
-            <input type="number" className="form-control  col-lg-4 text-center" defaultValue={editStudent.sumTests} name="SumTests" placeholder="Sum Tests" onChange={onchangeInput} />
+            <input type="number" className="form-control  col-lg-4 text-center" defaultValue={editStudent.sumTests} min="1" max="100" name="sumTests" placeholder="Sum Tests" onChange={onchangeInput} />
           </div>
 
 

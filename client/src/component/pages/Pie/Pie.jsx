@@ -10,25 +10,27 @@ const styleBox = {
   boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
 
 };
+
 function PieChart() {
   const [students,setStudents] = useState()
   useEffect(()=>{
     studentsAPI().then(res=>setStudents(res.result))
   },[])
 
+
 const numStudents = students?.length;
-  
+
 const num90 = students?.filter(student=>{
    return student.sumTests > 90
   })
 const num80 = students?.filter(student=>{
-   return (student.sumTests < 90 && student.sumTests >80)
+   return (student.sumTests < 91 && student.sumTests >80)
   })
 const num70 = students?.filter(student=>{
-   return (student.sumTests < 80 && student.sumTests >70)
+   return (student.sumTests < 81 && student.sumTests >70)
   })
 const num60 = students?.filter(student=>{
-   return (student.sumTests < 70 && student.sumTests>60)
+   return (student.sumTests < 71 && student.sumTests>60)
   });
 
   
@@ -43,7 +45,7 @@ const num60 = students?.filter(student=>{
               datasets: [
                 {
                   label: '# of votes',
-                  data: [numStudents - num90?.length,num80?.length, num60?.length, num60?.length ],
+                  data: [num90?.length,num80?.length, num70?.length, num60?.length ],
                 }
               ]
             }}

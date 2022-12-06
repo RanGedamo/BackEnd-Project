@@ -25,7 +25,7 @@ function Footer() {
       <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
         ><InstagramIcon sx={{mt:0.7 }}/></a>
 
-      <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+      <a className="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/ran-gedamo-288828236/" role="button"
         ><LinkedInIcon sx={{mt:0.7 }}/></a>
 
       <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
